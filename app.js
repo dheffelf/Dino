@@ -1,7 +1,7 @@
 const app = {
     init(selectors){
         this.max=0
-       // =document.querySelector
+       this.list = document.querySelector(selectors.listSelector)
         document
         .querySelector(selectors.formSelector)
         .addEventListener('submit', this.addDino.bind(this))        
@@ -17,8 +17,9 @@ addDino(ev){
         id: this.max + 1,
         name: ev.target.dinoName.value, 
     }
-    this.renderListItem(dino)
-    
+    const listItem = this.renderListItem(dino)
+    this.list.appendChild(listItem)
+
     //console.log(dino.name, dino.id) 
     this.max ++ 
 
