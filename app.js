@@ -23,9 +23,15 @@ const app = {
     this.list.insertBefore(listItem, this.list.firstChild)
 
     this.dinos.unshift(dino)
+    this.save()
 
     ++ this.max
     ev.target.reset()
+  },
+
+  save() {
+    localStorage
+      .setItem('dinos', JSON.stringify(this.dinos))
   },
 
   renderListItem(dino) {
@@ -39,7 +45,7 @@ const app = {
 
     item
       .querySelector('button.remove')
-      .addEventListener('click', this.removeDino.dino(this))
+      .addEventListener('click', this.removeDino.bind(this))
 
     return item
   },
@@ -47,10 +53,16 @@ const app = {
   removeDino(ev) {
     const listItem = ev.target.closest('.dino')
     listItem.remove()
-    for(let i=0; i< this.dinos.lenght; i++){
-        this.dinos[i].id
+
+    for (let i = 0; i < this.dinos.length; i++) {
+      const currentId = this.dinos[i].id.toString()
+      if (listItem.dataset.id === currentId) {
+        this.dinos.splice(i, 1)
+        break;
+      }
     }
-    //this.dinos.splice(?, 1)
+
+    this.save()
   },
 }
 
