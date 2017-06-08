@@ -23,13 +23,14 @@ addDino(ev){
         name: ev.target.dinoName.value, 
     }
     const listItem = this.renderListItem(dino)
-    this.list.appendChild(listItem)
+    //adding input to begining of list 
+    this.list.insertBefore(listItem,this.list.firstChild)
 
 
     //TODO: add dino to this.dinos array
     //makes array of objects 
     //adding to the end to the array "push"
-    this.dino.push(dino)
+    this.dinos.push(dino);
 
 
 
