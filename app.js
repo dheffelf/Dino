@@ -1,5 +1,6 @@
 const app = {
     init(selectors){
+       // this.dinos = []
         //this.dinos()
         this.max=0
        this.list = document.querySelector(selectors.listSelector)
@@ -7,8 +8,7 @@ const app = {
         .querySelector(selectors.formSelector)
         .addEventListener('submit', this.addDino.bind(this))   
 
-        //making when refreshed will not have to click in box
-        
+      
 
     },
 addDino(ev){
@@ -27,6 +27,12 @@ addDino(ev){
 
 
     //TODO: add dino to this.dinos array
+    //makes array of objects 
+    //adding to the end to the array "push"
+    this.dino.push(dino)
+
+
+
 
     //console.log(dino.name, dino.id) 
     this.max ++ 
