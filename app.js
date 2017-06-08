@@ -1,12 +1,14 @@
 const app = {
     init(selectors){
-       // this.dinos = []
-        //this.dinos()
+        this.dinos = []
         this.max=0
-       this.list = document.querySelector(selectors.listSelector)
+        this.list = document
+            .querySelector(selectors.listSelector)
+        this.template = document
+             .querySelector(selectors.templateSelector)
         document
-        .querySelector(selectors.formSelector)
-        .addEventListener('submit', this.addDino.bind(this))   
+             .querySelector(selectors.formSelector)
+             .addEventListener('submit', this.addDino.bind(this))   
 
       
 
@@ -30,25 +32,34 @@ addDino(ev){
     //TODO: add dino to this.dinos array
     //makes array of objects 
     //adding to the end to the array "push"
-    this.dinos.push(dino);
+    //this.dinos.push(dino)
+    this.dinos.unshift(dino)
 
 
 
 
     //console.log(dino.name, dino.id) 
-    this.max ++ 
+    this.max ++
     //clearing out the input so do not have to backspace 
     ev.target.reset()
 
-    }, 
+ }, 
     renderListItem(dino){
-       const item = document.createElement('li')
-       item.textContent = dino.name
-       return item 
-    }
+        const item = this.template.cloneNode()
+        debugger
+        item.dataset.id = dino.id
+        item
+            .querySelector('.dino-name')
+        //const item = document.createElement('li')
+            .textContent = dino.name
+        
+        
+        return item 
+}
 }
 //passing object
 app.init({
     formSelector: '#dino-form',
     listSelector: '#dino-list',
+    templateSelector: '.dino.template',
 })
