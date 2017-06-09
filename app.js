@@ -12,6 +12,10 @@ const app = {
 
     this.load()
   },
+shiftUp(){
+  let dinos = localStorage.getItem('dinos')
+  console.log('dinos')
+},
 
   load() {
     // load the JSON from localStorage
@@ -51,7 +55,7 @@ const app = {
     ev.target.reset()
   },
 
-  save() {
+  save(ev) {
     localStorage
       .setItem('dinos', JSON.stringify(this.dinos))
   },
@@ -92,4 +96,5 @@ app.init({
   formSelector: '#dino-form',
   listSelector: '#dino-list',
   templateSelector: '.dino.template',
+
 })

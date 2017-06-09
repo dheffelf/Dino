@@ -9,3 +9,8 @@
 .dino{
     clear: both;
 }
+
+.button.success {
+    background-color: #4ecc37;
+    color: #fefefe;
+}
