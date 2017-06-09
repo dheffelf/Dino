@@ -15,7 +15,7 @@ const app = {
 
 shiftUp(ev){
   let dinos = localStorage.getItem('dinos')
-  
+  console.log('in shift up', ev.target.closest('.dino'))
 },
 
   load() {
