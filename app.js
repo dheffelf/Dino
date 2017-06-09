@@ -12,9 +12,10 @@ const app = {
 
     this.load()
   },
-shiftUp(){
+
+shiftUp(ev){
   let dinos = localStorage.getItem('dinos')
-  console.log('dinos')
+  
 },
 
   load() {
@@ -55,7 +56,7 @@ shiftUp(){
     ev.target.reset()
   },
 
-  save(ev) {
+  save() {
     localStorage
       .setItem('dinos', JSON.stringify(this.dinos))
   },
@@ -72,6 +73,10 @@ shiftUp(){
     item
       .querySelector('button.remove')
       .addEventListener('click', this.removeDino.bind(this))
+
+      item
+      .querySelector('button.Up')
+      .addEventListener('click', this.shiftUp.bind(this))
 
     return item
   },
